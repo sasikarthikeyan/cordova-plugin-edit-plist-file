@@ -7,13 +7,10 @@
     <name>Edit Plist file</name>
     
     <description>
-        A cordova "plugin" that helps you indicate the modifications on the iOS's *-info.plist file.
-        So it avoids you to directly edit the *-info.plist file.
-        For example it is used to whitelist some schemes for ios9.
-        This plugin was initially created to avoid iOS 9 problems that prevent opening other apps from your own app because some used plugins aren't updated to take into consideration the new specification for iOS 9.
+        Modification of plist for alternative icons
     </description>
 
-    <author>Haythem OUEDERNI - haythem@nirbyapp.com </author>
+    <author>John Salamat</author>
 
     <keywords>cordova,whitelist,ios9,ecosystem:cordova,ordova-ios</keywords>
     
@@ -30,19 +27,24 @@
     <!-- ios -->
     <platform name="ios">
         
-        <!-- iOS9 whitelisting -->
-        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
-            <array>
-                <string>twitter</string>
-                <string>fb</string>
-                <string>whatsapp</string>
-                <string>itms-apps</string>
-                <string>youtube</string>
-                <string>soundcloud</string>
-                <string>fb-messenger</string>
-                <string>instagram</string>
-            </array>
-        </config-file>
+        <config-file target="*-Info.plist" parent="CFBundleIcons">
+          <dict>
+            <key>CFBundleAlternateIcons</key>
+            <dict>
+              <!-- The name you use in code -->
+              <key>wild</key>
+              <dict>
+                <key>UIPrerenderedIcon</key>
+                <true/>
+                <key>CFBundleIconFiles</key>
+                <array>
+                  <!-- The actual filenames. Don't list the @2x/@3x files here, and you can use just the biggest one if you like -->
+                  <string>www/wild</string>
+                </array>
+              </dict>
+            </dict>
+          </dict>
+          </config-file>
         
         
         
